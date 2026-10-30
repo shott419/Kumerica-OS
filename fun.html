@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KUMERICA FUN HOUSE - By Gunshot</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+body{background:#0f0f0f;color:white;min-height:100vh}
+.header{background:linear-gradient(90deg,#FFD700,#FF4500,#00A651);padding:30px 20px;text-align:center}
+.header h1{font-size:2.2rem}
+.tabs{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#1a1a1a;position:sticky;top:0;z-index:10}
+.tab{white-space:nowrap;padding:10px 16px;border-radius:20px;background:#2a2a2a;border:none;color:white;font-weight:bold;cursor:pointer;font-size:0.85rem}
+.tab.active{background:#FFD700;color:black}
+.container{max-width:700px;margin:0 auto;padding:16px}
+.card{background:#1e1e1e;border-radius:16px;padding:20px;margin-bottom:16px;display:none}
+.card.active{display:block}
+.card h2{text-align:center;margin-bottom:12px}
+input{width:100%;padding:12px;border-radius:10px;border:none;background:#2a2a2a;color:white;text-align:center;margin-bottom:10px}
+.btn{display:block;margin:8px auto;background:#FFD700;color:black;font-weight:bold;border:none;padding:12px 26px;border-radius:30px;cursor:pointer}
+.result{margin-top:12px;padding:12px;background:#2a2a2a;border-radius:10px;text-align:center;display:none}
+.result.show{display:block}
+.click-area{width:150px;height:150px;background:linear-gradient(135deg,#FFD700,#00A651);border-radius:50%;margin:20px auto;display:flex;align-items:center;justify-content:center;font-size:60px;cursor:pointer}
+.shop{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.shop-item{background:#2a2a2a;padding:10px;border-radius:8px;text-align:center;font-size:0.8rem}
+canvas{max-width:100%;border-radius:10px;margin-top:10px}
+.footer{text-align:center;padding:20px;opacity:0.6;font-size:0.8rem}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🎉 KUMERICA FUN HOUSE 💛🖤💚</h1>
+<p>By Gunshot - 6 Games in 1! - Tap tabs!</p>
+</div>
+<div class="tabs">
+<button class="tab active" onclick="showTab(0)">🎮 Clicker</button>
+<button class="tab" onclick="showTab(1)">😂 Roast</button>
+<button class="tab" onclick="showTab(2)">🖼️ Meme</button>
+<button class="tab" onclick="showTab(3)">💘 Love %</button>
+<button class="tab" onclick="showTab(4)">💬 Fake Chat</button>
+<button class="tab" onclick="showTab(5)">🎰 Bet Joker</button>
+</div>
+<div class="container">
+<div class="card active" id="tab0">
+<h2>🎮 KUMERICA CLICKER</h2>
+<p style="text-align:center;font-size:1.5rem;font-weight:bold">💰 <span id="money">0</span> GHC</p>
+<div class="click-area" onclick="clickerTap()">💛</div>
+<p style="text-align:center">Taps: <span id="taps">0</span></p>
+<div class="shop">
+<div class="shop-item"><b>Kente Chain</b><br>100 GHC<br><button class="btn" style="padding:6px 12px;font-size:0.7rem" onclick="buyItem(100,5)">Buy (+5)</button></div>
+<div class="shop-item"><b>Kejetia Shop</b><br>500 GHC<br><button class="btn" style="padding:6px 12px;font-size:0.7rem" onclick="buyItem(500,20)">Buy (+20)</button></div>
+<div class="shop-item"><b>Benz</b><br>2000 GHC<br><button class="btn" style="padding:6px 12px;font-size:0.7rem" onclick="buyItem(2000,100)">Buy (+100)</button></div>
+<div class="shop-item"><b>Mall</b><br>10000 GHC<br><button class="btn" style="padding:6px 12px;font-size:0.7rem" onclick="buyItem(10000,500)">Buy (+500)</button></div>
+</div>
+</div>
+<div class="card" id="tab1">
+<h2>😂 ROAST GENERATOR</h2>
+<input type="text" id="roastName" placeholder="Enter name e.g. Kofi">
+<button class="btn" onclick="genRoast()">Roast Am! 🔥</button>
+<div id="roastRes" class="result"></div>
+</div>
+<div class="card" id="tab2">
+<h2>🖼️ MEME MAKER</h2>
+<input type="file" id="memeFile" accept="image/*">
+<input type="text" id="memeTop" placeholder="Top: KUMERICA">
+<input type="text" id="memeBottom" placeholder="Bottom: TO THE WIASE">
+<button class="btn" onclick="genMeme()">Make Meme!</button>
+<canvas id="memeCanvas" width="500" height="500"></canvas>
+<button class="btn" id="memeDown" style="display:none" onclick="downloadMeme()">📸 Download</button>
+</div>
+<div class="card" id="tab3">
+<h2>💘 VIBE CHECKER</h2>
+<input type="text" id="love1" placeholder="Your Name">
+<input type="text" id="love2" placeholder="Crush Name">
+<button class="btn" onclick="checkLove()">Check Vibe! 💘</button>
+<div id="loveRes" class="result"></div>
+</div>
+<div class="card" id="tab4">
+<h2>💬 FAKE CHAT</h2>
+<input type="text" id="chatName" placeholder="Name e.g. Stonebwoy">
+<input type="text" id="chatMsg1" placeholder="Their msg">
+<input type="text" id="chatMsg2" placeholder="Your reply">
+<button class="btn" onclick="genChat()">Generate!</button>
+<div id="chatRes" class="result" style="text-align:left;background:#075E54;padding:0;border-radius:10px;overflow:hidden"></div>
+</div>
+<div class="card" id="tab5">
+<h2>🎰 BET JOKER</h2>
+<input type="text" id="betTeam" placeholder="Team e.g. Kotoko">
+<input type="number" id="betAmount" placeholder="Amount e.g. 100">
+<button class="btn" onclick="genBet()">Check Bet! 🎰</button>
+<div id="betRes" class="result"></div>
+</div>
+</div>
+<div class="footer"><a href="index.html" style="color:#FFD700">← Back to Main</a></div>
+<script>
+let tabs=document.querySelectorAll('.card');let tabBtns=document.querySelectorAll('.tab');
+function showTab(i){tabs.forEach(c=>c.classList.remove('active'));tabBtns.forEach(b=>b.classList.remove('active'));document.getElementById('tab'+i).classList.add('active');tabBtns[i].classList.add('active');}
+let money=0,perTap=1,taps=0;
+function clickerTap(){taps++;money+=perTap;document.getElementById('money').innerText=money;document.getElementById('taps').innerText=taps;}
+function buyItem(cost,bonus){if(money>=cost){money-=cost;perTap+=bonus;document.getElementById('money').innerText=money;alert('Bought! +'+bonus);}else alert('Need '+cost);}
+let roasts=["{n}, your head like Kejetia traffic!","{n}, you be like MoMo charges!","{n}, your shoe shine pass your future!","{n}, your English like Google Translate!","{n}, you be like ECG light!","{n}, you be like Trotro mate!"];
+function genRoast(){let name=document.getElementById('roastName').value||'You';let r=roasts[Math.floor(Math.random()*roasts.length)].replace('{n}',name);document.getElementById('roastRes').innerHTML='<b>🔥 ROAST:</b><br><br>'+r;document.getElementById('roastRes').classList.add('show');}
+let memeImg=null;document.getElementById('memeFile').addEventListener('change',function(e){let reader=new FileReader();reader.onload=function(ev){memeImg=new Image();memeImg.onload=function(){genMeme();};memeImg.src=ev.target.result;};reader.readAsDataURL(e.target.files[0]);});
+function genMeme(){let canvas=document.getElementById('memeCanvas');let ctx=canvas.getContext('2d');ctx.fillStyle='black';ctx.fillRect(0,0,500,500);if(memeImg){ctx.drawImage(memeImg,0,0,500,500);}else{ctx.fillStyle='#FFD700';ctx.font='bold 40px sans-serif';ctx.textAlign='center';ctx.fillText('Upload Image!',250,250);return;}let topT=document.getElementById('memeTop').value||'KUMERICA';let bottomT=document.getElementById('memeBottom').value||'TO THE WIASE';ctx.fillStyle='white';ctx.strokeStyle='black';ctx.lineWidth=4;ctx.font='bold 32px Impact';ctx.textAlign='center';ctx.strokeText(topT.toUpperCase(),250,50);ctx.fillText(topT.toUpperCase(),250,50);ctx.strokeText(bottomT.toUpperCase(),250,480);ctx.fillText(bottomT.toUpperCase(),250,480);document.getElementById('memeDown').style.display='block';}
+function downloadMeme(){let link=document.createElement('a');link.download='kumerica-meme.png';link.href=document.getElementById('memeCanvas').toDataURL();link.click();}
+function checkLove(){let a=document.getElementById('love1').value;let b=document.getElementById('love2').value;if(!a||!b){alert('Enter both!');return;}let hash=(a+b).split('').reduce((x,c)=>x+c.charCodeAt(0),0);let percent=(hash%71)+30;let msg=percent>80?'🔥 SOULMATES!':percent>60?'💛 Good vibe!':percent>45?'😅 50/50':'💔 E no go work!';document.getElementById('loveRes').innerHTML='<b>'+a+' + '+b+' = '+percent+'% ❤️</b><br><br>'+msg;document.getElementById('loveRes').classList.add('show');}
+function genChat(){let name=document.getElementById('chatName').value||'Stonebwoy';let m1=document.getElementById('chatMsg1').value||'Yo Gunshot!';let m2=document.getElementById('chatMsg2').value||'Kumerica to the wiase!';let html=`<div style="background:#128C7E;padding:10px;color:white;font-weight:bold">← ${name}</div><div style="padding:12px;background:#E5DDD5;min-height:150px"><div style="background:white;padding:8px 12px;border-radius:0 8px 8px 8px;max-width:70%;margin-bottom:10px;color:black">${m1}</div><div style="background:#DCF8C6;padding:8px 12px;border-radius:8px 0 8px 8px;max-width:70%;margin-left:auto;color:black">${m2}</div></div>`;document.getElementById('chatRes').innerHTML=html;document.getElementById('chatRes').classList.add('show');}
+let betJokes=["Your village people press refresh!","Odds 1.01 but you go still lose!","Bet slip be like Gov promise!","You win for dream only!","Ticket cut for 90th minute!"];
+function genBet(){let team=document.getElementById('betTeam').value||'Kotoko';let amt=document.getElementById('betAmount').value||'100';let joke=betJokes[Math.floor(Math.random()*betJokes.length)];document.getElementById('betRes').innerHTML=`<b>BET: ${team} - ${amt} GHC</b><br><br>❌ CUT! 😂<br><br><i>${joke}</i>`;document.getElementById('betRes').classList.add('show');}
+</script>
+</body>
+</html>
