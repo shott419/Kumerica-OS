@@ -3,99 +3,146 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KUMERICA-OS - By Gunshot</title>
+<title>KUMERICA-OS v3 - By Gunshot</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
 body{background:#0f0f0f;color:white;min-height:100vh}
-.header{background:linear-gradient(90deg,#FFD700 0%,#1a1a1a 50%,#00A651 100%);padding:40px 20px;text-align:center}
-.header h1{font-size:2.4rem;letter-spacing:2px}
-.container{max-width:650px;margin:0 auto;padding:20px}
-.card{background:#1e1e1e;border-radius:16px;padding:22px;margin-bottom:20px;border-left:5px solid #FFD700;box-shadow:0 4px 20px rgba(0,0,0,0.5)}
-.card h2{font-size:1.4rem;margin-bottom:6px;text-align:center}
-.sub{font-size:0.85rem;color:#aaa;text-align:center;margin-bottom:14px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
-input,select{width:100%;padding:13px;border-radius:10px;border:none;background:#2a2a2a;color:white;font-size:0.95rem;text-align:center}
-.btn{display:block;margin:8px auto;background:#FFD700;color:black;font-weight:bold;border:none;padding:13px 28px;border-radius:30px;font-size:1rem;cursor:pointer}
-.btn2{background:#00A651;color:white;margin-top:10px;font-size:0.9rem;padding:10px 20px}
-.result{margin-top:14px;padding:14px;background:#2a2a2a;border-radius:10px;text-align:center;display:none;font-size:1rem;line-height:1.6}
+.header{background:linear-gradient(90deg,#FFD700 0%,#1a1a1a 50%,#00A651 100%);padding:38px 20px;text-align:center}
+.header h1{font-size:2.3rem;letter-spacing:1px}
+.container{max-width:700px;margin:0 auto;padding:18px}
+.card{background:#1e1e1e;border-radius:16px;padding:20px;margin-bottom:18px;border-left:5px solid #FFD700}
+.card h2{font-size:1.35rem;text-align:center;margin-bottom:6px}
+.sub{font-size:0.82rem;color:#aaa;text-align:center;margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-bottom:12px}
+input,select{width:100%;padding:12px;border-radius:10px;border:none;background:#2a2a2a;color:white;font-size:0.92rem;text-align:center}
+.btn{display:block;margin:8px auto;background:#FFD700;color:black;font-weight:bold;border:none;padding:12px 26px;border-radius:30px;font-size:0.95rem;cursor:pointer}
+.btn2{background:#00A651;color:white;font-size:0.85rem;padding:9px 18px}
+.btn3{background:#25D366;color:white;font-size:0.9rem;padding:10px 22px}
+.result{margin-top:12px;padding:12px;background:#2a2a2a;border-radius:10px;text-align:center;display:none;line-height:1.5;font-size:0.95rem}
 .result.show{display:block}
-.momo{background:#FFD700;color:black;padding:18px;border-radius:12px;text-align:center;font-weight:bold;font-size:1.15rem}
-.momo a{color:black;text-decoration:none;display:block;margin-top:8px;background:black;color:#FFD700;padding:10px;border-radius:8px}
-.core-label{font-size:0.75rem;color:#FFD700;text-align:center;margin-bottom:4px;font-weight:bold}
-.elec-label{font-size:0.75rem;color:#00A651;text-align:center;margin-bottom:4px;font-weight:bold}
+.momo{background:#FFD700;color:black;padding:16px;border-radius:12px;text-align:center;font-weight:bold}
+.momo a{display:block;margin-top:8px;background:black;color:#FFD700;padding:9px;border-radius:8px;text-decoration:none}
+.label{font-size:0.7rem;color:#FFD700;text-align:center;margin-bottom:3px;font-weight:bold}
+.placement{background:linear-gradient(135deg,#1a1a1a,#2a2a2a);border:1px solid #FFD700;padding:12px;border-radius:10px;margin-top:10px;text-align:left}
 canvas{display:none}
+.footer{text-align:center;padding:18px;opacity:0.6;font-size:0.8rem}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 4px 20px rgba(0,0,0,0.5);z-index:999}
 </style>
 </head>
 <body>
 <div class="header">
-<h1>💛 KUMERICA-OS 🖤💚</h1>
-<p>By Gunshot - Kumerica To The Whole Wiase - v2.0 ALL FEATURES</p>
+<h1>💛 KUMERICA-OS v3 🖤💚</h1>
+<p>By Gunshot - BECE | WASSCE | NovDec | Placement - Kumerica To The Whole Wiase</p>
 </div>
 <div class="container">
 <div class="card">
-<h2>📚 BECE Calculator</h2>
-<p class="sub">Enter RAW % (0-100) - We convert to Grade 1-9 automatically!</p>
+<h2>📚 BECE Calculator + Placement</h2>
+<p class="sub">Enter % (0-100) -> Grade + SHS Placement Prediction!</p>
 <div class="grid">
-<div><p class="core-label">ENGLISH %</p><input type="number" id="b1" placeholder="e.g. 85"></div>
-<div><p class="core-label">MATHS %</p><input type="number" id="b2" placeholder="e.g. 78"></div>
-<div><p class="core-label">SCIENCE %</p><input type="number" id="b3" placeholder="e.g. 92"></div>
-<div><p class="core-label">SOCIAL %</p><input type="number" id="b4" placeholder="e.g. 65"></div>
-<div><p class="elec-label">SUB5 %</p><input type="number" id="b5" placeholder="e.g. 70"></div>
-<div><p class="elec-label">SUB6 %</p><input type="number" id="b6" placeholder="e.g. 88"></div>
+<div><p class="label">ENGLISH %</p><input type="number" id="b1" placeholder="85"></div>
+<div><p class="label">MATHS %</p><input type="number" id="b2" placeholder="78"></div>
+<div><p class="label">SCIENCE %</p><input type="number" id="b3" placeholder="92"></div>
+<div><p class="label">SOCIAL %</p><input type="number" id="b4" placeholder="65"></div>
+<div><p class="label">RME/BDT %</p><input type="number" id="b5" placeholder="70"></div>
+<div><p class="label">GH LANG %</p><input type="number" id="b6" placeholder="88"></div>
 </div>
-<button class="btn" onclick="calcBECE()">Calc BECE Aggregate</button>
+<button class="btn" onclick="calcBECE()">Calc BECE + SHS Placement</button>
 <div id="beceRes" class="result"></div>
-<button id="beceShare" class="btn btn2" style="display:none" onclick="shareResult('bece')">📸 Share Result as Image</button>
+<div id="becePlace" class="result"></div>
+<button id="beceShare" class="btn btn2" style="display:none" onclick="shareResult('bece')">📸 Share BECE Result</button>
 </div>
 <div class="card">
-<h2>🎓 WASSCE Calculator - REAL LOGIC</h2>
-<p class="sub">Core + Electives (best 3) = Aggregate 6</p>
-<p class="core-label">CORE SUBJECTS</p>
+<h2>🎓 WASSCE - Real Aggregate</h2>
+<p class="sub">Core 3 + Best 3 Electives = Agg 6</p>
+<p class="label">CORE</p>
 <div class="grid">
-<div><p class="core-label">ENGLISH</p><select id="w1"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
-<div><p class="core-label">CORE MATHS</p><select id="w2"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
-<div><p class="core-label">INTEGRATED SCIENCE</p><select id="w3"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
-<div><p class="core-label">SOCIAL (elective)</p><select id="w4"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
+<div><p class="label">ENGLISH</p><select id="w1"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
+<div><p class="label">CORE MATHS</p><select id="w2"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
+<div><p class="label">INT. SCIENCE</p><select id="w3"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
+<div><p class="label">SOCIAL</p><select id="w4"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select></div>
 </div>
-<p class="elec-label">ELECTIVES (Best 3 picked)</p>
+<p class="label">ELECTIVES (Best 3 auto-picked)</p>
 <div class="grid">
-<select id="w5"><option value="1">A1 - Elective1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
-<select id="w6"><option value="1">A1 - Elective2</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
-<select id="w7"><option value="1">A1 - Elective3</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
-<select id="w8"><option value="1">A1 - Elective4</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="w5"><option value="1">A1 E1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="w6"><option value="1">A1 E2</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="w7"><option value="1">A1 E3</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="w8"><option value="1">A1 E4</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
 </div>
-<button class="btn" onclick="calcWASSCE()">Calc WASSCE - Real Logic</button>
+<button class="btn" onclick="calcWASSCE()">Calc WASSCE</button>
 <div id="wassceRes" class="result"></div>
-<button id="wassceShare" class="btn btn2" style="display:none" onclick="shareResult('wassce')">📸 Share Result as Image</button>
+<button id="wassceShare" class="btn btn2" style="display:none" onclick="shareResult('wassce')">📸 Share WASSCE Result</button>
+</div>
+<div class="card" style="border-left-color:#00A651">
+<h2>📝 NovDec / Private WASSCE</h2>
+<p class="sub">For those rewriting - Calc best subjects!</p>
+<div class="grid3">
+<select id="n1"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="n2"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="n3"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="n4"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="n5"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+<select id="n6"><option value="1">A1</option><option value="2">B2</option><option value="3">B3</option><option value="4">C4</option><option value="5">C5</option><option value="6">C6</option><option value="7">D7</option><option value="8">E8</option><option value="9">F9</option></select>
+</div>
+<button class="btn" onclick="calcNovDec()">Calc NovDec Agg</button>
+<div id="novdecRes" class="result"></div>
+</div>
+<div class="card" style="border-left-color:#FFD700">
+<h2>🏫 SHS Placement Checker</h2>
+<p class="sub">Based on BECE Aggregate - See schools you can get!</p>
+<div class="grid">
+<input type="number" id="placeAgg" placeholder="Your Agg e.g. 15" min="6" max="54">
+<select id="placeRegion"><option> Ashanti Region </option><option> Greater Accra </option><option> Central </option><option> Western </option><option> Eastern </option><option> Northern </option><option> Volta </option><option> Any Region </option></select>
+</div>
+<button class="btn" onclick="checkPlacement()">Check My Placement</button>
+<div id="placeRes" class="result"></div>
 </div>
 <div class="card">
+<h2>💬 Chat with Gunshot + Support</h2>
+<div class="grid">
+<a href="https://wa.me/233551997304?text=Boss%20Gunshot%20I%20use%20Kumerica-OS%20-%20My%20aggregate%20is..." style="text-decoration:none"><button class="btn btn3" style="width:100%">💬 Chat on WhatsApp</button></a>
+<a href="tel:0551997304" style="text-decoration:none"><button class="btn" style="width:100%">📞 Call Gunshot</button></a>
+</div>
 <div class="momo">
 MTN MoMo: 0551997304<br>Gunshot O Kn
-<a href="tel:*170%23" onclick="setTimeout(()=>{window.location.href='tel:0551997304'},500)">💛 Tap to Pay via MoMo 💚<br><small>*170# then 0551997304</small></a>
+<a href="tel:*170%23">💛 Tap to Pay MoMo - *170# 💚</a>
 </div>
 </div>
 </div>
-<canvas id="shareCanvas" width="600" height="800"></canvas>
+<a href="https://wa.me/233551997304?text=Hi%20Gunshot%20-%20I%20dey%20use%20Kumerica-OS" class="whatsapp-float">💬</a>
+<div class="footer">KUMERICA-OS v3.0 - Made in Kumasi by Gunshot 💛🖤💚</div>
+<canvas id="shareCanvas" width="600" height="900"></canvas>
 <script>
 let lastBECEText="", lastWASSCEText="";
 function rawToGrade(s){if(s>=80)return 1;if(s>=70)return 2;if(s>=65)return 3;if(s>=60)return 4;if(s>=55)return 5;if(s>=50)return 6;if(s>=40)return 7;if(s>=35)return 8;return 9;}
+function getPlacement(agg){
+ if(agg<=10) return {cat:"🔥 CATEGORY A - TOP SHS", schools:"Prempeh College, Opoku Ware, OWASS, Presec Legon, Achimota, Wey Gey Hey, Adisadel, Mfantsipim, St. Augustine, Holy Child, Wesley Girls, Aburi Girls"};
+ if(agg<=16) return {cat:"✅ CATEGORY B - GOOD SHS", schools:"Kumasi High, Kumasi Academy, Anglican SHS, T.I. Ahmadiyya, Kumasi Sec Tech, Labone SHS, Accra Academy, St. Thomas Aquinas, Pope John, St. Peters"};
+ if(agg<=24) return {cat:"👍 CATEGORY C - OK SHS", schools:"Asanteman SHS, Osei Kyeretwie, Armed Forces SHTS, Adventist SHS, Islamic SHS, West Africa SHS, Ofori Panin, Ghana National, Aggrey Memorial"};
+ if(agg<=36) return {cat:"😅 CATEGORY D - You go get SHS", schools:"Local Community SHS, Private SHS, Technical Institutes, Vocational - You still go SHS Boss!"};
+ return {cat:"💪 TRY AGAIN - Consider Private", schools:"Private SHS, Remedial, Technical/Vocational - No give up!"};
+}
 function calcBECE(){
- let raw=[], grades=[];
- for(let i=1;i<=6;i++){let v=parseInt(document.getElementById('b'+i).value);if(isNaN(v)||v<0||v>100){alert('Enter 0-100 for all!');return;}raw.push(v);grades.push(rawToGrade(v));}
- let agg=grades.reduce((a,b)=>a+b,0);
- let remark=agg<=12?'🔥 EXCELLENT!':agg<=20?'✅ VERY GOOD!':agg<=30?'👍 GOOD':agg<=36?'😅 FAIR':'💪 TRY AGAIN';
- let detail=raw.map((r,i)=>`Sub${i+1}: ${r}% = Grade ${grades[i]}`).join('<br>');
- document.getElementById('beceRes').innerHTML=`<b>Aggregate: ${agg}</b><br><br>${detail}<br><br>${remark}`;
- document.getElementById('beceRes').classList.add('show');document.getElementById('beceShare').style.display='block';
- lastBECEText=`BECE Aggregate: ${agg}\n${raw.map((r,i)=>`Sub${i+1}: ${r}% (Grade ${grades[i]})`).join('\n')}\n${remark}`;
+ let raw=[], grades=[];for(let i=1;i<=6;i++){let v=parseInt(document.getElementById('b'+i).value);if(isNaN(v)||v<0||v>100){alert('Enter 0-100 for all!');return;}raw.push(v);grades.push(rawToGrade(v));}
+ let agg=grades.reduce((a,b)=>a+b,0);let place=getPlacement(agg);let detail=raw.map((r,i)=>`Sub${i+1}: ${r}% = Grade ${grades[i]}`).join('<br>');
+ document.getElementById('beceRes').innerHTML=`<b>BECE Aggregate: ${agg}</b><br><br>${detail}`;document.getElementById('beceRes').classList.add('show');
+ document.getElementById('becePlace').innerHTML=`<div class="placement"><b>${place.cat}</b><br><br>🏫 <b>Schools you fit get:</b><br>${place.schools}</div>`;document.getElementById('becePlace').classList.add('show');document.getElementById('beceShare').style.display='block';lastBECEText=`BECE Aggregate: ${agg}\n${place.cat}\nSchools: ${place.schools}`;
 }
 function calcWASSCE(){
  let core=[], elect=[];for(let i=1;i<=3;i++)core.push(parseInt(document.getElementById('w'+i).value));for(let i=4;i<=8;i++)elect.push(parseInt(document.getElementById('w'+i).value));elect.sort((a,b)=>a-b);let best3=elect.slice(0,3);let agg=[...core,...best3].reduce((a,b)=>a+b,0);
- let map={1:'A1',2:'B2',3:'B3',4:'C4',5:'C5',6:'C6',7:'D7',8:'E8',9:'F9'};let coreTxt=core.map(v=>map[v]).join(', ');let bestTxt=best3.map(v=>map[v]).join(', ');let remark=agg<=12?'🔥 BEAST! Legon go beg you!':agg<=20?'✅ EXCELLENT!':agg<=24?'👍 VERY GOOD!':agg<=36?'😅 GOOD':'💪 Try NovDec';
- document.getElementById('wassceRes').innerHTML=`<b>Aggregate: ${agg} (Core 3 + Best 3)</b><br><br>Core: ${coreTxt}<br>Best 3: ${bestTxt}<br><br>${remark}`;document.getElementById('wassceRes').classList.add('show');document.getElementById('wassceShare').style.display='block';lastWASSCEText=`WASSCE Aggregate: ${agg}\nCore: ${coreTxt}\nBest 3: ${bestTxt}\n${remark}`;
+ let map={1:'A1',2:'B2',3:'B3',4:'C4',5:'C5',6:'C6',7:'D7',8:'E8',9:'F9'};let coreTxt=core.map(v=>map[v]).join(', ');let bestTxt=best3.map(v=>map[v]).join(', ');let uni=agg<=14?'Legon, KNUST, UCC - All programs!':agg<=20?'KNUST, UCC, Legon - Most programs!':agg<=24?'University of Ghana, Education, Technical Universities':agg<=30?'Private Universities, Polytechnics':agg<=36?'Diploma, HND, Private':'NovDec recommended';
+ document.getElementById('wassceRes').innerHTML=`<b>WASSCE Agg: ${agg}</b><br>Core: ${coreTxt}<br>Best 3: ${bestTxt}<br><br>🎓 <b>Uni Chance:</b> ${uni}`;document.getElementById('wassceRes').classList.add('show');document.getElementById('wassceShare').style.display='block';lastWASSCEText=`WASSCE Agg: ${agg}\nCore: ${coreTxt}\nBest 3: ${bestTxt}\nUni: ${uni}`;
+}
+function calcNovDec(){
+ let vals=[];for(let i=1;i<=6;i++)vals.push(parseInt(document.getElementById('n'+i).value));let agg=vals.reduce((a,b)=>a+b,0);let best=vals.sort((a,b)=>a-b).slice(0,3).reduce((a,b)=>a+b,0);
+ document.getElementById('novdecRes').innerHTML=`<b>NovDec Total (6 subs): ${agg}</b><br>Best 3: ${best}<br>Tip: Use best 3 to replace old WASSCE grades!`;document.getElementById('novdecRes').classList.add('show');
+}
+function checkPlacement(){
+ let agg=parseInt(document.getElementById('placeAgg').value);if(isNaN(agg)||agg<6||agg>54){alert('Enter agg 6-54');return;}let region=document.getElementById('placeRegion').value;let place=getPlacement(agg);
+ document.getElementById('placeRes').innerHTML=`<b>Your Aggregate: ${agg}</b> - ${region}<br><br><div class="placement"><b>${place.cat}</b><br><br>🏫 Schools:<br>${place.schools}</div>`;document.getElementById('placeRes').classList.add('show');
 }
 function shareResult(type){
- let text=type==='bece'?lastBECEText:lastWASSCEText;let title=type==='bece'?'BECE RESULT':'WASSCE RESULT';let canvas=document.getElementById('shareCanvas');let ctx=canvas.getContext('2d');ctx.fillStyle='#0f0f0f';ctx.fillRect(0,0,600,800);let grad=ctx.createLinearGradient(0,0,600,120);grad.addColorStop(0,'#FFD700');grad.addColorStop(0.5,'#1a1a1a');grad.addColorStop(1,'#00A651');ctx.fillStyle=grad;ctx.fillRect(0,0,600,120);ctx.fillStyle='white';ctx.font='bold 32px sans-serif';ctx.textAlign='center';ctx.fillText('💛 KUMERICA-OS 💚',300,60);ctx.font='16px sans-serif';ctx.fillText('By Gunshot - Kumerica To The Whole Wiase',300,90);ctx.fillStyle='#1e1e1e';ctx.beginPath();ctx.roundRect(20,140,560,500,16);ctx.fill();ctx.fillStyle='white';ctx.font='bold 24px sans-serif';ctx.fillText(title,300,180);ctx.font='16px sans-serif';ctx.textAlign='left';let lines=text.split('\n');let y=220;lines.forEach(l=>{ctx.fillText(l,40,y);y+=28;});ctx.textAlign='center';ctx.fillStyle='#FFD700';ctx.font='bold 14px sans-serif';ctx.fillText('shott419.github.io/Kumerica-OS',300,700);ctx.fillText('MoMo: 0551997304 Gunshot',300,725);let link=document.createElement('a');link.download=`Kumerica-${title}-${Date.now()}.png`;link.href=canvas.toDataURL();link.click();
+ let text=type==='bece'?lastBECEText:lastWASSCEText;let title=type==='bece'?'BECE RESULT + PLACEMENT':'WASSCE RESULT';let canvas=document.getElementById('shareCanvas');let ctx=canvas.getContext('2d');ctx.fillStyle='#0f0f0f';ctx.fillRect(0,0,600,900);let grad=ctx.createLinearGradient(0,0,600,120);grad.addColorStop(0,'#FFD700');grad.addColorStop(0.5,'#1a1a1a');grad.addColorStop(1,'#00A651');ctx.fillStyle=grad;ctx.fillRect(0,0,600,120);ctx.fillStyle='white';ctx.font='bold 30px sans-serif';ctx.textAlign='center';ctx.fillText('💛 KUMERICA-OS v3 💚',300,60);ctx.font='14px sans-serif';ctx.fillText('By Gunshot - All-in-One Calculator',300,88);ctx.fillStyle='#1e1e1e';ctx.beginPath();ctx.roundRect(20,135,560,600,16);ctx.fill();ctx.fillStyle='white';ctx.font='bold 22px sans-serif';ctx.fillText(title,300,170);ctx.font='15px sans-serif';ctx.textAlign='left';let lines=text.split('\n');let y=210;lines.forEach(l=>{ctx.fillText(l,30,y);y+=24;});ctx.textAlign='center';ctx.fillStyle='#FFD700';ctx.font='bold 13px sans-serif';ctx.fillText('shott419.github.io/Kumerica-OS',300,780);let link=document.createElement('a');link.download=`Kumerica-${title}-${Date.now()}.png`;link.href=canvas.toDataURL();link.click();
 }
 </script>
 </body>
